@@ -6,7 +6,7 @@
             <h2>一个框架</h2>
             <p class="actions">
                 <a>GitHub</a>
-                <a>开始</a>
+                <router-link to="/Doc">开始</router-link>
             </p>
         </div>
     </div>
