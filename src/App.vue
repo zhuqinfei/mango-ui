@@ -1,6 +1,5 @@
 <template>
-  <div>hi
-  </div>
+  <div>hi</div>
   <Mango/>
 </template>
 
