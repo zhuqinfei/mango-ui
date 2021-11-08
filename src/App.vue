@@ -1,16 +1,16 @@
 <template>
-  <div>hi</div>
-  <Mango/>
+  <div>导航栏 | <router-link to="/">Mango</router-link> | 
+  <router-link to="/xxx">Mango2</router-link>
+  </div>
+  <hr>
+  <router-view />
 </template>
 
 <script>
-import Mango from './components/Mango.vue'
+
 
 
 export default {
   name: 'App',
-  components: {
-    Mango
   }
-}
 </script>
