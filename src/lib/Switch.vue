@@ -2,7 +2,6 @@
     <button @click="toggle" :class="{checked:value}">
         <span></span>
     </button>
-    <div>{{value}}</div>
 </template>
 
 <script lang="ts">
@@ -14,7 +13,7 @@ export default {
     },
     setup(props,context){
         const toggle=()=>{
-           context.emit('input',!props.value) //this.$emit(旧版)
+           context.emit('update:value',!props.value) //this.$emit(旧版)
         }
         return {toggle}
     }
