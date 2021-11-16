@@ -1,5 +1,6 @@
 <template>
   <button class="mango-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="mango-loadingIndicator"></span>
     <slot />
   </button>
 </template>
@@ -19,13 +20,17 @@ export default {
       type: String,
       default: "normal",
     },
-     disabled: {
+    disabled: {
       type: Boolean,
       default: false,
     },
+    loading: {
+      type: Boolean,
+      default: false
+    },
   },
   setup(props) {
-    const { theme, size , level} = props
+    const { theme, size, level } = props
     const classes = computed(() => {
       return {
         [`mango-theme-${theme}`]: theme,
@@ -102,7 +107,7 @@ $grey: grey;
     height: 20px;
     padding: 0 4px;
   }
-   &.mango-theme-button {
+  &.mango-theme-button {
     &.mango-level-main {
       background: $blue;
       color: white;
@@ -158,11 +163,31 @@ $grey: grey;
       }
     }
   }
-  &.mango-theme-link, &.mango-theme-text {
+  &.mango-theme-link,
+  &.mango-theme-text {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
     }
+  }
+  > .mango-loadingIndicator {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: mango-spin 1s infinite linear;
+  }
+}
+@keyframes mango-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>
