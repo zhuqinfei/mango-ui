@@ -1,21 +1,23 @@
 <template>
     <template v-if="visible">
-        <div class="mango-dialog-overlay" @click="closeOnClickOverlay"></div>
-        <div class="mango-dialog-wrapper">
-            <div class="mango-dialog">
-                <header>
-                    <slot name="title" />
-                    <span @click="close" class="mango-dialog-close"></span>
-                </header>
-                <main>
-                    <slot name="content" />
-                </main>
-                <footer>
-                    <Button level="main" @click="ok">OK</Button>
-                    <Button @click="cancel">Cancel</Button>
-                </footer>
+        <teleport to="body">
+            <div class="mango-dialog-overlay" @click="closeOnClickOverlay"></div>
+            <div class="mango-dialog-wrapper">
+                <div class="mango-dialog">
+                    <header>
+                        <slot name="title" />
+                        <span @click="close" class="mango-dialog-close"></span>
+                    </header>
+                    <main>
+                        <slot name="content" />
+                    </main>
+                    <footer>
+                        <Button level="main" @click="ok">OK</Button>
+                        <Button @click="cancel">Cancel</Button>
+                    </footer>
+                </div>
             </div>
-        </div>
+        </teleport>
     </template>
 </template>
 
@@ -32,11 +34,11 @@ export default {
             type: Boolean,
             default: true,
         },
-        ok:{
-            type:Function,
+        ok: {
+            type: Function,
         },
-        cancel:{
-            type:Function,
+        cancel: {
+            type: Function,
         },
     },
     setup(props, context) {
@@ -49,10 +51,10 @@ export default {
             }
         }
         const ok = () => {
-            if(props.ok && props.ok()!==false){  //判断语句可缩写成props.ok?.()!==false
+            if (props.ok && props.ok() !== false) {  //判断语句可缩写成props.ok?.()!==false
                 close()
             }
-             const result=props.ok()
+            const result = props.ok()
         }
         const cancel = () => {
             context.emit('cancel')
