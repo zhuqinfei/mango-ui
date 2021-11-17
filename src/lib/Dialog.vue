@@ -4,12 +4,11 @@
         <div class="mango-dialog-wrapper">
             <div class="mango-dialog">
                 <header>
-                    标题
+                    {{title}}
                     <span @click="close" class="mango-dialog-close"></span>
                 </header>
                 <main>
-                    <p>第一行字</p>
-                    <p>第二行字</p>
+                    <slot/>
                 </main>
                 <footer>
                     <Button level="main" @click="ok">OK</Button>
@@ -38,6 +37,10 @@ export default {
         },
         cancel:{
             type:Function,
+        },
+        title:{
+            type:String,
+            default:'提示'
         }
     },
     setup(props, context) {
