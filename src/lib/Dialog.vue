@@ -4,11 +4,11 @@
         <div class="mango-dialog-wrapper">
             <div class="mango-dialog">
                 <header>
-                    {{title}}
+                    <slot name="title" />
                     <span @click="close" class="mango-dialog-close"></span>
                 </header>
                 <main>
-                    <slot/>
+                    <slot name="content" />
                 </main>
                 <footer>
                     <Button level="main" @click="ok">OK</Button>
@@ -38,10 +38,6 @@ export default {
         cancel:{
             type:Function,
         },
-        title:{
-            type:String,
-            default:'提示'
-        }
     },
     setup(props, context) {
         const close = () => {
