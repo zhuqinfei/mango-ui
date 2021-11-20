@@ -57,7 +57,7 @@ export default {
             const result = props.ok()
         }
         const cancel = () => {
-            props.cancel?.()
+            props.cancel && props.cancel()
             close()
         }
         return { close, closeOnClickOverlay, ok, cancel }
