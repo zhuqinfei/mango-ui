@@ -1,16 +1,22 @@
 <template>
     <div class="mango-tabs">
         <div class="mango-tabs-nav">
-           <div class="mango-tabs-nav-item" 
-             v-for="(t,index) in titles" 
-             @click="select(t)" 
-             :class="{selected: t=== selected}" 
-             :key="index">{{t}}
-           </div>
+            <div
+                class="mango-tabs-nav-item"
+                v-for="(t,index) in titles"
+                @click="select(t)"
+                :class="{ selected: t === selected }"
+                :key="index"
+            >{{ t }}</div>
         </div>
         <div class="mango-tabs-content">
-            {{ current }}
-            <component class="mango-tabs-content-item" :is="current" />
+            <component
+                class="mango-tabs-content-item"
+                :class="{ selected: c.props.title === selected }"
+                v-for="(c,index) in defaults"
+                :key="index"
+                :is="c"
+            />
         </div>
     </div>
 </template>
@@ -44,7 +50,7 @@ export default {
         const select = (title: string) => {
             context.emit('update:selected', title)
         }
-        return { defaults, titles,current,select }
+        return { defaults, titles, current, select }
     }
 }
 </script>
@@ -72,6 +78,12 @@ $border-color: #d9d9d9;
     }
     &-content {
         padding: 8px 0;
+        &-item {
+            display: none;
+            &.selected {
+                display: block;
+            }
+        }
     }
 }
 </style>
