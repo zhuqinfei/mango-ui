@@ -1,9 +1,10 @@
 <template>
     <div class="mango-tabs">
         <div class="mango-tabs-nav" ref="container">
-            <div class="mango-tabs-nav-item"
+            <div
+                class="mango-tabs-nav-item"
                 v-for="(t,index) in titles"
-                :ref="el => { if (t===selected) selectedItem= el }"
+                :ref="el => { if (t === selected) selectedItem = el }"
                 @click="select(t)"
                 :class="{ selected: t === selected }"
                 :key="index"
@@ -24,7 +25,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import { computed, onMounted, onUpdated, ref } from 'vue'
+import {onMounted,ref, watchEffect } from 'vue'
 
 export default {
     props: {
@@ -33,19 +34,19 @@ export default {
         }
     },
     setup(props, context) {
-        const selectedItem=ref<HTMLDivElement>(null)
-        const indicator=ref<HTMLDivElement>(null)
-        const container=ref<HTMLDivElement>(null)
-        const x=()=>{
-           const {width}=selectedItem.value.getBoundingClientRect() //获取元素宽度
-           indicator.value.style.width=width+"px"
-           const {left:left1}=container.value.getBoundingClientRect()
-           const {left:left2}=selectedItem.value.getBoundingClientRect()
-           const left=left2-left1
-           indicator.value.style.left=left+"px"
-        }
-        onMounted(x)   //只在加载中渲染一次
-        onUpdated(x)    //更新数据中可以多次渲染
+        const selectedItem = ref<HTMLDivElement>(null)
+        const indicator = ref<HTMLDivElement>(null)
+        const container = ref<HTMLDivElement>(null)
+        onMounted(() => {
+            watchEffect(() => {
+                const { width } = selectedItem.value.getBoundingClientRect() //获取元素宽度
+                indicator.value.style.width = width + "px"
+                const { left: left1 } = container.value.getBoundingClientRect()
+                const { left: left2 } = selectedItem.value.getBoundingClientRect()
+                const left = left2 - left1
+                indicator.value.style.left = left + "px"
+            })
+        })
         const defaults = context.slots.default()
         defaults.forEach((tag) => {
             if (tag.type !== Tab) {
@@ -58,7 +59,7 @@ export default {
         const select = (title: string) => {
             context.emit('update:selected', title)
         }
-        return { defaults, titles, select,selectedItem,indicator,container}
+        return { defaults, titles, select, selectedItem, indicator, container }
     }
 }
 </script>
@@ -91,7 +92,7 @@ $border-color: #d9d9d9;
             left: 0;
             bottom: -1px;
             width: 100px;
-            transition:all 250ms;
+            transition: all 250ms;
         }
     }
     &-content {
