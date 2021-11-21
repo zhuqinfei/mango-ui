@@ -36,7 +36,7 @@ export default {
         const navItems=ref<HTMLDivElement[]>([])
         const indicator=ref<HTMLDivElement>(null)
         const container=ref<HTMLDivElement>(null)
-        onMounted(()=>{    //onMounted只在第一次渲染
+        const x=()=>{
            const divs=navItems.value
            const result=divs.filter(div=>div.classList.contains('selected'))[0]
            const {width}=result.getBoundingClientRect() //获取元素宽度
@@ -45,17 +45,9 @@ export default {
            const {left:left2}=result.getBoundingClientRect()
            const left=left2-left1
            indicator.value.style.left=left+"px"
-        })
-        onUpdated(()=>{
-           const divs=navItems.value
-           const result=divs.filter(div=>div.classList.contains('selected'))[0]
-           const {width}=result.getBoundingClientRect() //获取元素宽度
-           indicator.value.style.width=width+"px"
-           const {left:left1}=container.value.getBoundingClientRect()
-           const {left:left2}=result.getBoundingClientRect()
-           const left=left2-left1
-           indicator.value.style.left=left+"px"
-        })   
+        }
+        onMounted(x)   //只在加载中渲染一次
+        onUpdated(x)    //更新数据中可以多次渲染
         const defaults = context.slots.default()
         defaults.forEach((tag) => {
             if (tag.type !== Tab) {
@@ -106,6 +98,7 @@ $border-color: #d9d9d9;
             left: 0;
             bottom: -1px;
             width: 100px;
+            transition:all 250ms;
         }
     }
     &-content {
