@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="markdown-body">
         <h1>开始使用</h1>
         <p>
             请先
@@ -22,3 +22,10 @@
  </code></pre>
     </article>
 </template>
+
+<script>
+import 'github-markdown-css'
+export default {
+  
+}
+</script>
