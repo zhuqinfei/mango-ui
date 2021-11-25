@@ -25,7 +25,7 @@
                         <use xlink:href="#icon-ts" />
                     </svg>
                     <h3>基于 TypeScript</h3>
-                    <p>源代码采用 TypeScript 书写（非严格检查）</p>
+                    <p>源代码采用 TypeScript 书写</p>
                 </li>
                 <li>
                     <svg>
@@ -62,8 +62,8 @@ $color: #007974;
     clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
-    margin: 64px auto;
-  width: 400px;
+    margin: 64px 16px;
+    border:1px solid red;
   @media (min-width: 800px) {
     width: 800px;
   }
