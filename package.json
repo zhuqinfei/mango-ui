@@ -1,6 +1,6 @@
 
 {
-  "name": "mangoUI",
+  "name": "mango-ui",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
