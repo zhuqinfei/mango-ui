@@ -1,6 +1,6 @@
 {
   "name": "mango-ui-fei",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "files": [
     "dist/lib/*"
   ],
@@ -16,11 +16,11 @@
   "dependencies": {
     "github-markdown-css": "4.0.0",
     "marked": "1.1.1",
-    "prismjs": "1.21.0",
-    "vue": "3.0.0",
-    "vue-router": "4.0.0-beta.3"
+    "prismjs": "1.21.0"
   },
   "devDependencies": {
+    "vue": "3.0.0",
+    "vue-router": "4.0.0-beta.3",
     "@vue/compiler-sfc": "3.0.0",
     "rollup-plugin-esbuild": "2.5.0",
     "rollup-plugin-scss": "2.6.0",
