@@ -40,10 +40,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$border-color: #d9d9d9;
+$border-color: #e0dfdf;
 .demo {
   border: 1px solid $border-color;
   margin: 16px 0 32px;
+  border-radius: 6px;
+  width:80%;
+  &:hover{
+    box-shadow: 0px 1px 5px 0px rgba(199,199,199,1);
+  }
   > h2 {
     font-size: 20px;
     padding: 8px 16px;

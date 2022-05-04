@@ -9,7 +9,7 @@ import {Button, Tabs,Tab, Switch, Dialog,openDialog} from "mango-ui-fei"
 
 就可以使用我提供的组件了。
 
-## Vue 单文件组件
+## <span style="color:#fa3f6c;font-weight:bold;font-size:30px">#</span>Vue 单文件组件
 
 代码示例：
 

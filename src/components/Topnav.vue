@@ -2,7 +2,7 @@
     <div class="topnav">
         <router-link to="/" class="logo">
              <svg class="icon">
-                <use xlink:href="#icon-mango" />
+                <use xlink:href="#icon-mango33" />
             </svg>
         </router-link>
         <ul class="menu">
@@ -38,8 +38,9 @@ export default {
 </script>
 
 <style lang="scss">
-$color: #007974;
+$color: #121421;
 .topnav {
+    background:white;
     color: $color;
     display: flex;
     padding: 16px;
@@ -50,6 +51,7 @@ $color: #007974;
     z-index: 20;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 5px 5px rgb(51 51 51 / 10%);
     > .logo {
         max-width: 6em;
         margin-right: auto;

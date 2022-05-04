@@ -3,10 +3,10 @@
         <div class="topnavAndBanner">
             <Topnav />
             <div class="banner">
-                <h1>芒果UI</h1>
-                <h2>一个框架</h2>
+                <h1>MangoUI</h1>
+                <h2>基于vue3.0的UI框架</h2>
                 <p class="actions">
-                    <a>GitHub</a>
+                    <a href="https://github.com/zhuqinfei/mango-ui-fei" >GitHub</a>
                     <router-link to="/Doc">开始</router-link>
                 </p>
             </div>
@@ -18,7 +18,7 @@
                         <use xlink:href="#icon-vue" />
                     </svg>
                     <h3>基于 Vue 3</h3>
-                    <p>骄傲地使用了 Vue 3 Composition API</p>
+                    <p>使用 Vue 3 Composition API</p>
                 </li>
                 <li>
                     <svg>
@@ -26,6 +26,13 @@
                     </svg>
                     <h3>基于 TypeScript</h3>
                     <p>源代码采用 TypeScript 书写</p>
+                </li>
+                <li>
+                    <svg>
+                        <use xlink:href="#icon-feature" />
+                    </svg>
+                    <h3>功能丰富</h3>
+                    <p>组件的内容不断在更新和完善</p>
                 </li>
                 <li>
                     <svg>
@@ -50,15 +57,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$green: #02bcb0;
+$green: #3f8639;
 $border-radius: 4px;
-$color: #007974;
+$color: #121421;
 .topnavAndBanner {
-    background: linear-gradient(
-        145deg,
-        rgba(227, 255, 253, 1) 0%,
-        rgba(183, 233, 230, 1) 100%
-    );
+   background: linear-gradient(45deg, #c9de96 0%,#8ab66b 44%,#398235 100%);
     clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
@@ -76,7 +79,7 @@ $color: #007974;
     width: 1200px;
      >ul{
         li{
-            width:33.3333%
+            width:25%
         }
     }
   }
@@ -120,12 +123,13 @@ $color: #007974;
         a {
             margin: 0 8px;
             background: $green;
-            color: white;
+            color: #e6f0f1;
             display: inline-block;
             padding: 8px 24px;
             border-radius: $border-radius;
             &:hover {
                 text-decoration: none;
+                box-shadow: inset 0px -1px 1px 0px rgba(255,255,255,1);
             }
         }
     }

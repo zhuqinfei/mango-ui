@@ -39,20 +39,20 @@
 </template>
 
 <script lang='ts'>
-import { inject, Ref } from 'vue'
-import Topnav from "../components/Topnav.vue"
+import { inject, Ref } from "vue";
+import Topnav from "../components/Topnav.vue";
 
 export default {
   components: { Topnav },
   setup() {
-    const asideVisible = inject<Ref<boolean>>('asideVisible')   //get
-    return { asideVisible }
-  }
-}
+    const asideVisible = inject<Ref<boolean>>("asideVisible"); //get
+    return { asideVisible };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-$aside-index:10;
+$aside-index: 10;
 .layout {
   display: flex;
   flex-direction: column;
@@ -73,36 +73,61 @@ $aside-index:10;
   display: flex;
   > aside {
     flex-shrink: 0;
+    box-shadow: 5px 0 5px rgb(51 51 51 / 10%);
   }
   > main {
     flex-grow: 1;
-    padding: 16px;
+    padding: 50px 50px 50px 180px;
     background: white;
   }
 }
 aside {
-  background: lightblue;
-  width: 150px;
-  padding: 16px 0;
+  background: white;
+  width: 280px;
+
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: 70px;
+  padding-top: 90px;
   height: 100%;
-  z-index:$aside-index;
+  z-index: $aside-index;
   > h2 {
     margin-bottom: 4px;
-    padding: 0 16px;
+    padding: 8px 40px;
   }
   > ol {
     > li {
-        >a {
+      > a {
         display: block;
-        padding: 4px 16px;
+        padding: 10px 50px;
         text-decoration: none;
+        color: #121421;
+        transition: border-right 250ms;
+        position: relative;
       }
       .router-link-active {
-        background: white;
+        background: #efffcb;
+      }
+      .router-link-active::after{
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 0px;
+          animation:identifier 500ms;
+          animation-fill-mode : forwards;
+      }
+
+      @keyframes identifier {
+        from {
+            height: 0px;
+            border: 2px solid #73a75b;
+          
+        }
+        to {
+            height: 40px;
+            border: 2px solid #73a75b;
+          
+        }
       }
     }
   }

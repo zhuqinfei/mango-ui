@@ -44,7 +44,7 @@ export default {
 </script>
 <style lang="scss">
 $h: 32px;
-$border-color: #d9d9d9;
+$border-color: #222831;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
@@ -53,7 +53,8 @@ $grey: grey;
 .mango-button {
   box-sizing: border-box;
   height: $h;
-  padding: 0 12px;
+  padding: 18px 20px;
+  font-size: 14px;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -68,33 +69,65 @@ $grey: grey;
   & + & {
     margin-left: 8px;
   }
-  &:hover,
-  &:focus {
-    color: $blue;
-    border-color: $blue;
-  }
   &:focus {
     outline: none;
   }
   &::-moz-focus-inner {
     border: 0;
   }
-  &.mango-theme-link {
-    border-color: transparent;
+  &.mango-theme-primary {
+    border:1px solid #40babf;
+    background: #40babf;
     box-shadow: none;
-    color: $blue;
+    color: white;
     &:hover,
     &:focus {
-      color: lighten($blue, 10%);
+      background: white;
+      color:#40babf;
     }
   }
-  &.mango-theme-text {
-    border-color: transparent;
+ &.mango-theme-success {
+    border:1px solid #28a745;
+    background: #28a745;
     box-shadow: none;
-    color: inherit;
+    color: white;
     &:hover,
     &:focus {
-      background: darken(white, 5%);
+      background: white;
+      color:#28a745;
+    }
+  }
+  &.mango-theme-warning {
+    border:1px solid #ffc107;
+    background: #ffc107;
+    box-shadow: none;
+    color: white;
+    &:hover,
+    &:focus {
+      background: white;
+      color:#ffc107;
+    }
+  }
+  &.mango-theme-danger {
+    border:1px solid #ff4f57;
+    background: #ff4f57;
+    box-shadow: none;
+    color: white;
+    &:hover,
+    &:focus {
+      background: white;
+      color:#ff4f57;
+    }
+  }
+  &.mango-theme-info {
+    border:1px solid #52616b;
+    background: #52616b;
+    box-shadow: none;
+    color: white;
+    &:hover,
+    &:focus {
+      background: white;
+      color:#52616b;
     }
   }
   &.mango-size-big {
@@ -108,66 +141,11 @@ $grey: grey;
     padding: 0 4px;
   }
   &.mango-theme-button {
-    &.mango-level-main {
-      background: $blue;
-      color: white;
-      border-color: $blue;
-      &:hover,
-      &:focus {
-        background: darken($blue, 10%);
-        border-color: darken($blue, 10%);
-      }
-    }
-    &.mango-level-danger {
-      background: $red;
-      border-color: $red;
-      color: white;
-      &:hover,
-      &:focus {
-        background: darken($red, 10%);
-        border-color: darken($red, 10%);
-      }
-    }
-  }
-  &.mango-theme-link {
-    &.mango-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
-      }
-    }
-  }
-  &.mango-theme-text {
-    &.mango-level-main {
-      color: $blue;
-      &:hover,
-      &:focus {
-        color: darken($blue, 10%);
-      }
-    }
-    &.mango-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
-      }
-    }
-  }
-  &.mango-theme-button {
     &[disabled] {
       cursor: not-allowed;
-      color: $grey;
-      &:hover {
-        border-color: $grey;
-      }
-    }
-  }
-  &.mango-theme-link,
-  &.mango-theme-text {
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
+      border:1px solid #dddddd;
+      background: #dddddd;
+      color: #ffffff;
     }
   }
   > .mango-loadingIndicator {

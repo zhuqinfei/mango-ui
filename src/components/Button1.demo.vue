@@ -1,11 +1,15 @@
 <demo>
-常规使用
+基本用法
 </demo>
+
 <template>
 <div>
-  <Button>你好</Button>
-  <Button theme="link">你好</Button>
-  <Button theme="text">你好</Button>
+  <Button>默认按钮</Button>
+  <Button theme="primary">主要按钮</Button>
+  <Button theme="success">成功按钮</Button>
+  <Button theme="warning">警告按钮</Button>
+  <Button theme="danger">危险按钮</Button>
+  <Button theme="info">信息按钮</Button>
 </div>
 </template>
 
