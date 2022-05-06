@@ -16,6 +16,7 @@
       <h2> <span>#</span>支持一键开启dialog</h2>
       <p>引入<span>openDialog</span>模块，直接创建<span>Dialog</span>组件</p>
       <Demo :component="Dialog5Demo" />
+      <Attr :columns="columns" :data="data"></Attr>
     </div>   
 </template>
 <script lang="ts">
@@ -25,11 +26,59 @@ import Dialog2Demo from './Dialog2.demo.vue';
 import Dialog3Demo from './Dialog3.demo.vue';
 import Dialog4Demo from './Dialog4.demo.vue';
 import Dialog5Demo from './Dialog5.demo.vue';
+import Attr from "../Attr.vue";
+import { columns } from "../../lib/data";
+import { ref } from "vue";
 
 export default {
-    components: {Demo},
+    components: {Demo,Attr},
     setup() {
-        return {  Dialog1Demo,Dialog2Demo,Dialog3Demo,Dialog4Demo,Dialog5Demo}
+      const data = ref([
+        {
+         params: "visible",
+         desc: "是否打开对话框",
+         type: "boolean",
+         select: "false / true",
+         default: "false",
+        },
+        {
+         params: "closeOnClickOverlay",
+         desc: "是否点击遮罩层关闭对话框",
+         type: "boolean",
+         select: "false / true",
+         default: "false",
+        },
+        {
+         params: "title",
+         desc: "是否展示标题",
+         type: "string",
+         select: "自定义",
+         default: "自定义标签",
+        },
+        {
+         params: "buttonDia",
+         desc: "是否展示处理按钮",
+         type: "boolean",
+         select: "false/true",
+         default: "false",
+        },
+        {
+         params: "ok",
+         desc: "确认触发函数",
+         type: "function",
+         select: "()=>{}",
+         default: "--",
+        },
+        {
+         params: "cancel",
+         desc: "取消触发函数",
+         type: "function",
+         select: "()=>{}",
+         default: "--",
+        },    
+      ]);
+       
+      return {  Dialog1Demo,Dialog2Demo,Dialog3Demo,Dialog4Demo,Dialog5Demo,columns,data}
     }
 }
 </script>
@@ -53,31 +102,5 @@ export default {
         color:#fa3f6c;
      }
  }
- .att1{
-     border-bottom:1px solid #dcdfe6;
-     width:80%;
-     padding:16px 20px;
-   >span{
-       display: inline-block;
-       font-size: 14px;
-       color:#9e93b3;
-       width:20%;
-   }
-  
- }
-
-  .att2{
-     border-bottom:1px solid #dcdfe6;
-     width:80%;
-     padding:16px 20px;
-   >span{
-       display: inline-block;
-       font-size: 14px;
-       color:#6d6969;
-       width:20%;
-   }
- }
-
-
 } 
 </style>

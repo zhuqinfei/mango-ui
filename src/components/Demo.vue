@@ -50,7 +50,7 @@ $border-color: #e0dfdf;
     box-shadow: 0px 1px 5px 0px rgba(199,199,199,1);
   }
   > h2 {
-    font-size: 20px;
+    font-size: 18px;
     padding: 8px 16px;
     border-bottom: 1px solid $border-color;
   }
