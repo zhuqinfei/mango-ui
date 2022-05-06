@@ -1,10 +1,10 @@
 <demo>
-支持 closeOnClickOverlay
+支持 buttonDia
 </demo>
 <template>
 <div>
-  <Button theme="warning" @click="toggle">禁止遮罩层关闭对话框</Button>
-  <Dialog v-model:visible="x" :closeOnClickOverlay="false">
+  <Button theme="primary" @click="toggle">打开对话框有button处理按钮</Button>
+  <Dialog v-model:visible="x" buttonDia="true" :ok="f1" :cancel="f2">
     <p>这是内容</p>
   </Dialog>
 </div>
@@ -19,7 +19,9 @@ export default {
   setup() {
     const x = ref(false)
     const toggle = () => {x.value = !x.value}
-    return {x,toggle}
+    const f1 = () => {return false}
+    const f2 = () => {}
+    return {x,toggle,f1,f2}
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <demo>
-支持loading
+支持 loading
 </demo>
 <template>
 <div>

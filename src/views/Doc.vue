@@ -77,7 +77,7 @@ $aside-index: 10;
   }
   > main {
     flex-grow: 1;
-    padding: 50px 50px 50px 180px;
+    padding: 50px 10px 50px 260px;
     background: white;
   }
 }

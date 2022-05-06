@@ -1,10 +1,10 @@
 <demo>
-支持 closeOnClickOverlay
+支持 title
 </demo>
 <template>
 <div>
-  <Button theme="warning" @click="toggle">禁止遮罩层关闭对话框</Button>
-  <Dialog v-model:visible="x" :closeOnClickOverlay="false">
+  <Button theme="primary" @click="toggle">打开对话框带标签</Button>
+  <Dialog v-model:visible="x" title="自定义标签">
     <p>这是内容</p>
   </Dialog>
 </div>
